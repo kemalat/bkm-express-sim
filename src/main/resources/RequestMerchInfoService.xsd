@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.4-b01-. --><xs:schema xmlns:tns="http://www.bkmexpress.com.tr" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://www.bkmexpress.com.tr">
+
+    <xs:element name="requestMerchInfo" type="tns:requestMerchInfo"></xs:element>
+
+    <xs:element name="requestMerchInfoResponse" type="tns:requestMerchInfoResponse"></xs:element>
+
+    <xs:complexType name="requestMerchInfo">
+        <xs:sequence>
+            <xs:element name="requestMerchInfoWSRequest" type="tns:requestMerchInfoWSRequest" form="qualified" minOccurs="0"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="requestMerchInfoWSRequest">
+        <xs:complexContent>
+            <xs:extension base="tns:merchantWSBaseRequest">
+                <xs:sequence>
+                    <xs:element name="t" type="xs:string"></xs:element>
+
+                    <xs:element name="bid" type="xs:string"></xs:element>
+                    <xs:element name="bName" type="xs:string"></xs:element>
+                    <xs:element name="cBin" type="xs:string"></xs:element>
+                    <xs:element name="nofInst" type="xs:int"></xs:element>
+                    <xs:element name="ts" type="xs:string"></xs:element>
+                    <xs:element name="s" type="xs:string"></xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="merchantWSBaseRequest">
+        <xs:sequence></xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="requestMerchInfoResponse">
+        <xs:sequence>
+
+            <xs:element name="requestMerchInfoWSResponse" type="tns:requestMerchInfoWSResponse" form="qualified" minOccurs="0"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="requestMerchInfoWSResponse">
+        <xs:complexContent>
+            <xs:extension base="tns:merchantWSBaseResponse">
+                <xs:sequence>
+                    <xs:element name="t" type="xs:string"></xs:element>
+                    <xs:element name="posUrl" type="xs:string" ></xs:element>
+                    <xs:element name="posUid" type="xs:string" ></xs:element>
+                    <xs:element name="posPwd" type="xs:string" ></xs:element>
+                    <xs:element name="s3Dauth" type="xs:boolean" ></xs:element>
+                    <xs:element name="mpiUrl" type="xs:string" nillable="true"></xs:element>
+                    <xs:element name="mpiUid" type="xs:string" nillable="true"></xs:element>
+                    <xs:element name="mpiPwd" type="xs:string" nillable="true"></xs:element>
+                    <xs:element name="md" type="xs:string" nillable="true"></xs:element>
+
+                    <xs:element name="xid" type="xs:string" nillable="true"></xs:element>
+                    <xs:element name="s3DFDec" type="xs:boolean"></xs:element>
+                    <xs:element name="cIp" type="xs:string" nillable="true"></xs:element>
+                    <xs:element name="extra" type="xs:string" nillable="true"></xs:element>
+                    <xs:element name="ts" type="xs:string"></xs:element>
+                    <xs:element name="s" type="xs:string"></xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="merchantWSBaseResponse">
+        <xs:sequence>
+            <xs:element name="result" type="tns:result"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="result">
+        <xs:sequence>
+            <xs:element name="resultCode" type="xs:int"></xs:element>
+            <xs:element name="resultMsg" type="xs:string"></xs:element>
+            <xs:element name="resultDet" type="xs:string"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

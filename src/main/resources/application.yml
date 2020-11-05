@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+client:
+  defaultUri: http://localhost:8443/payment/iyzipos/bkm/merchantinfo/
+init:
+  payment:
+    url: https://web.bkmexpress.com.tr/api/web/init.bkm
+    delay: 10000
+    resultCode: 0
+
+merchant:
+  bid: 062
+  bName: T.GARANTİ BANKASI A.Ş.
+  cBin: 544078
+  nofInst: 1
+
+callback:
+  successUrl: http://localhost:8443/payment/iyzipos/bkm/callback/success
+  posMsg: '{&quot;posMessage&quot;:{&quot;merchantId&quot;:&quot;0&quot;,&quot;subMerchantId&quot;:&quot;0&quot;,&quot;customerId&quot;:&quot;0&quot;,&quot;batchId&quot;:&quot;0&quot;,&quot;installmentCount&quot;:&quot;0&quot;,&quot;amount&quot;:&quot;0&quot;,&quot;transactionSecurity&quot;:&quot;0&quot;},&quot;isEnrolled&quot;:&quot;true&quot;,&quot;provisionNumber&quot;:&quot;677623&quot;,&quot;rrn&quot;:&quot;030714323332&quot;,&quot;stan&quot;:&quot;323332&quot;,&quot;responseCode&quot;:&quot;00&quot;,&quot;responseMessage&quot;:&quot;OTORİZASYON VERİLDİ&quot;,&quot;orderId&quot;:&quot;40664150&quot;,&quot;transactionTime&quot;:&quot;0001-01-01T00:00:00&quot;,&quot;hashData&quot;:&quot;WybQf+uTa/IXm3fTPTkcbbjzwFU\u003d&quot;,&quot;merchantOrderId&quot;:&quot;20201102140141205mYBgoqZ&quot;}'
+
+

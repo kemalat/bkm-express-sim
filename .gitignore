@@ -1,0 +1,9 @@
+./target/
+sun-jaxb.episode
+.iml
+./logs
+.idea
+
+
+# Project exclude paths
+/target/

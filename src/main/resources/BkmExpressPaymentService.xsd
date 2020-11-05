@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.1-b01-. --><xs:schema xmlns:tns="http://www.bkmexpress.com.tr" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://www.bkmexpress.com.tr">
+
+    <xs:element name="initializePayment" type="tns:initializePayment" />
+
+    <xs:element name="initializePaymentResponse" type="tns:initializePaymentResponse" />
+
+    <xs:complexType name="initializePayment">
+        <xs:sequence>
+            <xs:element name="initializePaymentWSRequest" type="tns:initializePaymentWSRequest" form="qualified" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="initializePaymentWSRequest">
+        <xs:complexContent>
+            <xs:extension base="tns:merchantWSBaseRequest">
+                <xs:sequence>
+                    <xs:element name="mId" type="xs:string" />
+
+                    <xs:element name="sUrl" type="xs:string" />
+                    <xs:element name="cUrl" type="xs:string" />
+                    <xs:element name="sAmount" type="xs:string" />
+                    <xs:element name="cAmount" type="xs:string" />
+                    <xs:element name="instOpts">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="bank" type="tns:bank" maxOccurs="unbounded" />
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="ts" type="xs:string" />
+                    <xs:element name="s" type="xs:string" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="merchantWSBaseRequest">
+        <xs:sequence />
+    </xs:complexType>
+
+    <xs:complexType name="bank">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string" />
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="expBank" type="xs:string" />
+            <xs:element name="bins">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="bin" type="tns:bin" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="bin">
+        <xs:sequence>
+            <xs:element name="value" type="xs:string" />
+            <xs:element name="insts">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="inst" type="tns:installment" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="installment">
+
+        <xs:sequence>
+            <xs:element name="nofInst" type="xs:int" />
+            <xs:element name="amountInst" type="xs:string" />
+            <xs:element name="cAmount" type="xs:string" />
+            <xs:element name="tAmount" type="xs:string" />
+            <xs:element name="cPaid1stInst" type="xs:boolean" />
+            <xs:element name="expInst" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="initializePaymentResponse">
+        <xs:sequence>
+            <xs:element name="initializePaymentWSResponse" type="tns:initializePaymentWSResponse" form="qualified" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="initializePaymentWSResponse">
+
+        <xs:complexContent>
+            <xs:extension base="tns:merchantWSBaseResponse">
+                <xs:sequence>
+                    <xs:element name="t" type="xs:string" nillable="true" />
+                    <xs:element name="url" type="xs:string" nillable="true" />
+                    <xs:element name="ts" type="xs:string" nillable="true" />
+                    <xs:element name="s" type="xs:string" nillable="true" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="merchantWSBaseResponse">
+        <xs:sequence>
+            <xs:element name="result" type="tns:result" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="result">
+        <xs:sequence>
+            <xs:element name="resultCode" type="xs:int" />
+            <xs:element name="resultMsg" type="xs:string" />
+            <xs:element name="resultDet" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
